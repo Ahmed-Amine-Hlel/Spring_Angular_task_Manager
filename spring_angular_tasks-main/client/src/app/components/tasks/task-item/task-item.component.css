@@ -1,0 +1,18 @@
+.task {
+  position: relative;
+  display: flex;
+  background: #e8ebef;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* border-bottom: 1px rgb(122, 160, 230) dotted; */
+  border: 2px solid grey;
+  box-shadow: 16px 14px 20px #0000008c;
+}
+
+
+
+/* .is-complete {
+  text-decoration: line-through;
+} */

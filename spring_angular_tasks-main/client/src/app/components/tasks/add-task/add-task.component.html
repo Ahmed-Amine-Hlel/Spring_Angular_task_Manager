@@ -1,0 +1,26 @@
+<form class="form mb-2" (ngSubmit)="onSubmit()">
+  <input
+    style="border: solid 3px rgb(140, 147, 219)"
+    type="text"
+    name="task.title"
+    [(ngModel)]="task.title"
+    placeholder="what can the Robot do !"
+    maxlength="100"
+  />
+  <button type="submit" class="btn-custom">
+    <i class="fa fa-plus"></i> Add Task
+    <i class="fa fa-android" style="font-size: 25px"></i>
+  </button>
+</form>
+<!-- -------------------------------------------------------------------------------- -->
+<img
+  style="position: absolute; top: 450px; left: 500px"
+  src="/assets/images/robotics.png"
+  alt=""
+/>
+
+<img
+  style="position: absolute; top: 450px; left: 10px"
+  src="/assets/images/robot.png"
+  alt=""
+/>

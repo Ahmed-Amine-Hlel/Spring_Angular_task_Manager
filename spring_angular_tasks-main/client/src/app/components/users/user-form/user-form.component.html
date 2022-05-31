@@ -1,0 +1,244 @@
+<!-- <link rel="stylesheet" href="user-form.component.css" /> -->
+<div class="container mt-4">
+  <ng-container *ngIf="isFormLoading; else displayForm">
+    <app-spinner [message]="'Loading form...'"></app-spinner>
+  </ng-container>
+  <ng-template #displayForm>
+    <ng-container *ngIf="isError; else displayErros">
+      <p>An error has occured fetching the specified robot!</p>
+    </ng-container>
+    <ng-template #displayErros>
+      <h2 class="mb-4">
+        {{ isNewForm ? "Add a new Robot" : "Edit Robot" }}
+      </h2>
+      <form class="form" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+        <div class="form-group">
+          <label for="robotName">Robot Name: </label>
+          <input
+            type="text"
+            [(ngModel)]="user.robotName"
+            name="robotName"
+            id="robotName"
+            class="form-control col-4"
+          />
+        </div>
+        <div class="form-group">
+          <label for="maker">Robot Maker: </label>
+          <input
+            type="text"
+            [(ngModel)]="user.maker"
+            name="maker"
+            id="maker"
+            class="form-control col-4"
+          />
+        </div>
+        <div class="form-group">
+          <label for="price">Price: </label>
+          <input
+            type="text"
+            [(ngModel)]="user.price"
+            name="price"
+            id="price"
+            autocomplete="username"
+            class="form-control col-4"
+          />
+        </div>
+
+        <div class="form-group">
+          <mat-label for="password">Reference: </mat-label>
+
+          <sub>
+            <i class="material-icons" matSuffix (click)="hide = !hide">
+              {{ hide ? "visibility" : "visibility_off" }}
+            </i>
+          </sub>
+
+          <div class="input-icons">
+            <br />
+            <input
+              type="password"
+              [type]="hide ? 'password' : 'text'"
+              [(ngModel)]="user.password"
+              name="password"
+              id="password"
+              autocomplete="current-password"
+              class="input-field col-4"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="createdAt">Creation date: </label>
+          <input
+            type="date"
+            [ngModel]="user.createdAt | date: 'yyyy-MM-dd'"
+            (ngModelChange)="user.createdAt = $event"
+            name="createdAt"
+            id="createdAt"
+            class="form-control col-4"
+          />
+        </div>
+
+        <button type="submit" class="btn-custom">
+          {{ isNewForm ? "Add Robot" : "Save changes" }}
+        </button>
+      </form>
+    </ng-template>
+  </ng-template>
+  <img
+    style="position: absolute; top: 80px; left: 950px"
+    src="/assets/images/robotto.png"
+    alt=""
+  />
+
+  <img
+    style="
+      position: absolute;
+      top: 750px;
+      left: 50px;
+      width: 100px;
+      height: 100px;
+    "
+    src="/assets/images/rob1.png"
+    alt=""
+  />
+  <img
+    style="
+      position: absolute;
+      top: 710px;
+      left: 170px;
+      width: 100px;
+      height: 100px;
+    "
+    src="/assets/images/rob2.png"
+    alt=""
+  />
+  <img
+    style="
+      position: absolute;
+      top: 750px;
+      left: 290px;
+      width: 100px;
+      height: 100px;
+    "
+    src="/assets/images/rob3.png"
+    alt=""
+  />
+  <img
+    style="
+      position: absolute;
+      top: 750px;
+      left: 1490px;
+      width: 100px;
+      height: 100px;
+    "
+    src="/assets/images/rob4.png"
+    alt=""
+  />
+  <img
+    style="
+      position: absolute;
+      top: 790px;
+      left: 410px;
+      width: 100px;
+      height: 100px;
+    "
+    src="/assets/images/rob5.png"
+    alt=""
+  />
+  <img
+    style="
+      position: absolute;
+      top: 750px;
+      left: 530px;
+      width: 100px;
+      height: 100px;
+    "
+    src="/assets/images/rob6.png"
+    alt=""
+  />
+  <img
+    style="
+      position: absolute;
+      top: 720px;
+      left: 650px;
+      width: 100px;
+      height: 100px;
+    "
+    src="/assets/images/rob7.png"
+    alt=""
+  />
+  <img
+    style="
+      position: absolute;
+      top: 750px;
+      left: 770px;
+      width: 100px;
+      height: 100px;
+    "
+    src="/assets/images/rob8.png"
+    alt=""
+  />
+  <img
+    style="
+      position: absolute;
+      top: 790px;
+      left: 890px;
+      width: 100px;
+      height: 100px;
+    "
+    src="/assets/images/rob9.png"
+    alt=""
+  />
+  <img
+    style="
+      position: absolute;
+      top: 750px;
+      left: 1010px;
+      width: 100px;
+      height: 100px;
+    "
+    src="/assets/images/rob10.png"
+    alt=""
+  />
+  <img
+    style="
+      position: absolute;
+      top: 710px;
+      left: 1130px;
+      width: 100px;
+      height: 100px;
+    "
+    src="/assets/images/rob11.png"
+    alt=""
+  />
+  <img
+    style="
+      position: absolute;
+      top: 750px;
+      left: 1250px;
+      width: 100px;
+      height: 100px;
+    "
+    src="/assets/images/rob12.png"
+    alt=""
+  />
+  <img
+    style="
+      position: absolute;
+      top: 790px;
+      left: 1370px;
+      width: 100px;
+      height: 100px;
+    "
+    src="/assets/images/rob13.png"
+    alt=""
+  />
+</div>
+<!-- <script>
+  const cursor = document.querySelector(".cursor");
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.pageX + "px";
+    cursor.style.top = e.pageY + "px";
+  });
+</script> -->

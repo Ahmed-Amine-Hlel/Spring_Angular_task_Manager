@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="card shadow mt-4">
+    <div class="card-body">
+      <app-user-dropdown
+        (setCurrentUser)="setCurrentUser($event)"
+      ></app-user-dropdown>
+      <ng-container *ngIf="errorMessage; else contentTemp">
+        <app-error-message [message]="errorMessage"></app-error-message>
+      </ng-container>
+      <ng-template #contentTemp>
+        <app-spinner
+          *ngIf="isLoadingTasks; else tasksTemp"
+          [message]="'Fetching the tasks...'"
+        ></app-spinner>
+        <ng-template #tasksTemp>
+          <app-add-task
+            *ngIf="isAdmin"
+            [selectedUser]="currentUser"
+            (addTask)="addTask($event)"
+          ></app-add-task>
+          <app-task-item
+            *ngFor="let task of tasks"
+            [task]="task"
+            (deleteTask)="deleteTask($event)"
+          ></app-task-item>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+</div>
